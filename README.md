@@ -5,7 +5,7 @@
   <img alt="brox" src="https://raw.githubusercontent.com/broxhq/.github/main/profile/assets/logo.svg" width="240">
 </picture>
 
-### brox.dev
+### brox.sh
 
 </div>
 
@@ -29,12 +29,12 @@ npm start            # production server on :3000
 
 ## Deploy
 
-Auto-deployed to [brox.dev](https://brox.dev) via Vercel on every push to `main`.
+Auto-deployed to [brox.sh](https://brox.sh) via Vercel on every push to `main`.
 
 ## Stack
 
-- Next.js 14 (App Router)
-- React 18
+- Next.js 15 (App Router)
+- React 19
 - Tailwind CSS 3
 - TypeScript 5
 - Zero runtime dependencies beyond React

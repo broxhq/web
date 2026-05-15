@@ -141,7 +141,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="mt-28 flex flex-col justify-between gap-4 border-t border-zinc-900 pt-10 text-sm text-zinc-500 sm:mt-32 sm:flex-row">
-        <span className="font-mono">brox.dev</span>
+        <span className="font-mono">brox.sh</span>
         <nav className="flex flex-wrap gap-6">
           <a
             href="https://github.com/broxhq"

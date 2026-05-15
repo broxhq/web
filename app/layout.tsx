@@ -6,13 +6,13 @@ const description =
   "Install, share, and publish skills for Claude, Cursor, Cline, and other AI agents. One command — your agent gets new capabilities.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://brox.dev"),
+  metadataBase: new URL("https://brox.sh"),
   title,
   description,
   openGraph: {
     title,
     description,
-    url: "https://brox.dev",
+    url: "https://brox.sh",
     siteName: "brox",
     type: "website",
     images: ["/og.png"],
