@@ -1,4 +1,5 @@
 import { InstallBlock } from "./install-block";
+import { Logo } from "./logo";
 
 const steps = [
   {
@@ -43,7 +44,7 @@ export default function Home() {
 
       {/* Hero */}
       <section className="space-y-8">
-        <div className="text-4xl">🛩</div>
+        <Logo size={48} />
 
         <div className="space-y-4">
           <h1 className="text-5xl font-black leading-none tracking-[-0.04em] sm:text-7xl">
