@@ -1,22 +1,6 @@
-<div align="center">
+# qpilot — landing page
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/broxhq/.github/main/profile/assets/logo-dark.svg">
-  <img alt="brox" src="https://raw.githubusercontent.com/broxhq/.github/main/profile/assets/logo.svg" width="240">
-</picture>
-
-### brox.sh
-
-</div>
-
----
-
-The marketing site for Brox. Single-page minimal landing built with Next.js and Tailwind.
-
-## Projects featured
-
-- **brox** — package manager for AI agent skills
-- **[qpilot](https://npmjs.com/package/qpilot)** — run manual test cases with AI in a real browser (`npx qpilot`)
+Landing page for [qpilot](https://npmjs.com/package/qpilot). Built with Next.js and Tailwind. Deployed at [brox.sh](https://brox.sh).
 
 ## Develop
 
@@ -29,7 +13,7 @@ npm run dev          # → http://localhost:3000
 
 ```bash
 npm run build
-npm start            # production server on :3000
+npm start
 ```
 
 ## Deploy
@@ -42,7 +26,6 @@ Auto-deployed to [brox.sh](https://brox.sh) via Vercel on every push to `main`.
 - React 19
 - Tailwind CSS 3
 - TypeScript 5
-- Zero runtime dependencies beyond React
 
 ## License
 
