@@ -1,9 +1,9 @@
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
 
-const title = "brox — the package manager for AI agent skills";
+const title = "qpilot — AI that runs your test cases";
 const description =
-  "Install, share, and publish skills for Claude, Cursor, Cline, and other AI agents. One command — your agent gets new capabilities.";
+  "Paste a manual test case. An AI agent opens Chrome and executes each step — live pass / fail / warn. No code, no config, no Selenium.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://brox.sh"),
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title,
     description,
     url: "https://brox.sh",
-    siteName: "brox",
+    siteName: "qpilot",
     type: "website",
     images: ["/og.png"],
   },

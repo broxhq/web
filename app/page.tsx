@@ -1,203 +1,173 @@
-import { Logo } from "./logo";
 import { InstallBlock } from "./install-block";
 
-const skills = [
+const steps = [
   {
-    name: "@brox/pdf-extractor",
-    desc: "Extract text from PDFs",
-    href: "https://github.com/broxhq/examples/tree/main/pdf-extractor",
+    n: "01",
+    title: "Paste a test case",
+    desc: "Plain text — steps, expected results, credentials. No special format required.",
   },
   {
-    name: "@brox/web-fetch",
-    desc: "Fetch URLs as clean text",
-    href: "https://github.com/broxhq/examples/tree/main/web-fetch",
+    n: "02",
+    title: "Agent opens Chrome",
+    desc: "Uses your system Chrome. Navigates, clicks, fills forms — exactly as a human would.",
   },
   {
-    name: "@brox/git-context",
-    desc: "Repo awareness for agents",
-    href: "https://github.com/broxhq/examples/tree/main/git-context",
+    n: "03",
+    title: "Live results per step",
+    desc: "Each step gets pass, fail, or warn in real time. Failed steps include a screenshot.",
   },
   {
-    name: "@brox/sqlite-query",
-    desc: "Inspect and query .db files",
-    href: "https://github.com/broxhq/examples/tree/main/sqlite-query",
+    n: "04",
+    title: "Needs OTP? It asks",
+    desc: "Hits a captcha or SMS code — the run pauses and prompts you directly. Then continues.",
   },
 ];
+
+const example = `TC-001 — Login and add item to cart
+URL: https://www.saucedemo.com/
+Credentials: standard_user / secret_sauce
+
+Steps:
+1. Open the home page.
+   Expected: login form is visible.
+2. Enter credentials and click Login.
+   Expected: Products page opens with 6 items.
+3. Click "Add to cart" on "Sauce Labs Backpack".
+   Expected: cart counter shows 1.
+4. Click the cart icon.
+   Expected: cart contains Sauce Labs Backpack at $29.99.`;
 
 export default function Home() {
   return (
     <main className="mx-auto max-w-3xl px-6 py-20 sm:py-28">
-      {/* Hero */}
-      <section className="space-y-10">
-        <Logo size={56} />
 
-        <div className="space-y-5">
+      {/* Hero */}
+      <section className="space-y-8">
+        <div className="text-4xl">🛩</div>
+
+        <div className="space-y-4">
           <h1 className="text-5xl font-black leading-none tracking-[-0.04em] sm:text-7xl">
-            brox
+            qpilot
           </h1>
           <p className="max-w-xl text-lg text-zinc-400 sm:text-xl">
-            The package manager for AI agent skills.
+            Paste a test case. An AI agent runs it in a real browser.
           </p>
         </div>
 
-        <InstallBlock command="npm install -g @broxhq/cli" />
+        <InstallBlock command="npx qpilot" />
 
         <div className="flex flex-wrap gap-3">
           <a
-            href="https://github.com/broxhq"
+            href="https://www.npmjs.com/package/qpilot"
+            target="_blank"
+            rel="noopener noreferrer"
             className="rounded-md bg-white px-5 py-2.5 text-sm font-medium text-black transition-colors hover:bg-zinc-200"
           >
-            Browse skills →
+            View on npm →
           </a>
           <a
-            href="https://github.com/broxhq/cli"
+            href="https://github.com/broxhq/qpilot"
+            target="_blank"
+            rel="noopener noreferrer"
             className="rounded-md border border-zinc-800 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:border-zinc-700 hover:bg-zinc-900"
           >
-            View on GitHub
+            GitHub
           </a>
         </div>
       </section>
 
-      {/* qpilot — featured */}
-      <section className="mt-20 sm:mt-24">
-        <a
-          href="https://www.npmjs.com/package/qpilot"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group block rounded-xl border border-zinc-800 bg-zinc-950 p-6 transition-colors hover:border-zinc-700 sm:p-8"
-        >
-          <div className="mb-4 flex items-center justify-between gap-4">
-            <span className="text-xl font-bold tracking-tight text-white sm:text-2xl">
-              🛩 qpilot
-            </span>
-            <span className="rounded-full border border-zinc-700 px-2.5 py-0.5 text-xs text-zinc-400">
-              New
-            </span>
-          </div>
-          <p className="mb-6 leading-relaxed text-zinc-400">
-            Paste a manual test case. An AI agent opens Chrome and executes
-            each step — live <span className="text-white">pass / fail / warn</span>{" "}
-            per step. No code, no config, no Selenium.
-          </p>
-          <div className="flex flex-wrap items-center gap-3">
-            <code className="rounded-md bg-zinc-900 px-3 py-1.5 font-mono text-sm text-zinc-200">
-              npx qpilot
-            </code>
-            <span className="text-sm text-zinc-500 transition-colors group-hover:text-zinc-300">
-              npmjs.com/package/qpilot →
-            </span>
-          </div>
-        </a>
-      </section>
-
-      {/* What's a skill */}
+      {/* How it works */}
       <section className="mt-28 space-y-6 sm:mt-32">
         <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
-          What&apos;s a skill?
+          How it works
         </h2>
-        <p className="leading-relaxed text-zinc-400">
-          A self-contained bundle of instructions, scripts, and references that
-          extends an AI agent&apos;s capabilities. Drop one into your project
-          and your agent gains a new ability — read PDFs, query databases, scan
-          git history, fetch websites.
-        </p>
-        <InstallBlock command="brox install @brox/pdf-extractor" />
-        <p className="text-sm text-zinc-500">
-          Skills land in{" "}
-          <code className="text-zinc-300">.claude/skills/</code> — the
-          convention recognized by Claude Code, Cursor, Cline, and Continue.
-        </p>
+        <div className="space-y-0 divide-y divide-zinc-900">
+          {steps.map((s) => (
+            <div key={s.n} className="flex gap-6 py-6">
+              <span className="font-mono text-sm text-zinc-600 mt-0.5 shrink-0 w-6">
+                {s.n}
+              </span>
+              <div className="space-y-1">
+                <div className="font-semibold text-white">{s.title}</div>
+                <div className="text-zinc-400 leading-relaxed text-sm">{s.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
 
-      {/* Available now */}
+      {/* Example */}
       <section className="mt-28 space-y-6 sm:mt-32">
         <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
-          Available now
+          Example test case
         </h2>
-        <ul className="divide-y divide-zinc-900">
-          {skills.map((s) => (
-            <li key={s.name}>
+        <p className="text-zinc-400 text-sm leading-relaxed">
+          Write it the way you&apos;d explain it to a colleague. The agent figures out the rest.
+        </p>
+        <pre className="overflow-x-auto rounded-lg border border-zinc-900 bg-zinc-950 p-5 text-sm leading-relaxed">
+          <code className="font-mono text-zinc-300 whitespace-pre">{example}</code>
+        </pre>
+      </section>
+
+      {/* Requirements */}
+      <section className="mt-28 space-y-4 sm:mt-32">
+        <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
+          Requirements
+        </h2>
+        <ul className="space-y-2 text-zinc-400 text-sm">
+          <li className="flex gap-3">
+            <span className="text-accent shrink-0">✓</span>
+            Node.js 18+
+          </li>
+          <li className="flex gap-3">
+            <span className="text-accent shrink-0">✓</span>
+            Google Chrome installed
+          </li>
+          <li className="flex gap-3">
+            <span className="text-accent shrink-0">✓</span>
+            <span>
+              Anthropic API key —{" "}
               <a
-                href={s.href}
+                href="https://console.anthropic.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex flex-col gap-1 py-4 sm:flex-row sm:items-baseline sm:justify-between"
+                className="text-zinc-300 hover:text-white underline-offset-2 hover:underline"
               >
-                <span className="font-mono text-white transition-colors group-hover:text-accent">
-                  {s.name}
-                </span>
-                <span className="text-sm text-zinc-500">{s.desc}</span>
+                console.anthropic.com
               </a>
-            </li>
-          ))}
+            </span>
+          </li>
         </ul>
-        <p className="text-sm text-zinc-500">
-          Full list lives in{" "}
-          <a
-            href="https://github.com/broxhq/registry"
-            className="text-zinc-300 underline-offset-2 hover:text-white hover:underline"
-          >
-            broxhq/registry
-          </a>
-          .
-        </p>
-      </section>
-
-      {/* Publish */}
-      <section className="mt-28 space-y-6 sm:mt-32">
-        <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
-          Publish your own
-        </h2>
-        <p className="leading-relaxed text-zinc-400">
-          Scaffold a skill with{" "}
-          <code className="text-white">brox init</code>, edit{" "}
-          <code className="text-white">SKILL.md</code>, push to GitHub, and
-          publish. CI validates the manifest, ownership, and source repo, then
-          auto-merges — usually in under a minute.
-        </p>
-        <pre className="overflow-x-auto rounded-lg border border-zinc-900 bg-zinc-950 p-4 text-sm">
-          <code className="font-mono text-zinc-300">
-            <span className="text-accent">$</span> brox init
-            {"\n"}
-            <span className="text-accent">$</span> brox login
-            {"\n"}
-            <span className="text-accent">$</span> brox publish
-          </code>
-        </pre>
-        <p className="text-sm text-zinc-500">
-          You publish under your GitHub username as the scope:{" "}
-          <code className="text-zinc-300">@alice/*</code> belongs to{" "}
-          <code className="text-zinc-300">alice</code>.
+        <p className="text-xs text-zinc-600 pt-2">
+          No Chromium download. Uses your existing Chrome.
         </p>
       </section>
 
       {/* Footer */}
       <footer className="mt-28 flex flex-col justify-between gap-4 border-t border-zinc-900 pt-10 text-sm text-zinc-500 sm:mt-32 sm:flex-row">
-        <span className="font-mono">brox.sh</span>
+        <span className="font-mono">qpilot</span>
         <nav className="flex flex-wrap gap-6">
           <a
-            href="https://github.com/broxhq"
+            href="https://github.com/broxhq/qpilot"
+            target="_blank"
+            rel="noopener noreferrer"
             className="transition-colors hover:text-white"
           >
             GitHub
           </a>
           <a
-            href="https://www.npmjs.com/package/@broxhq/cli"
+            href="https://www.npmjs.com/package/qpilot"
+            target="_blank"
+            rel="noopener noreferrer"
             className="transition-colors hover:text-white"
           >
             npm
           </a>
           <a
-            href="https://github.com/broxhq/spec"
+            href="https://github.com/broxhq"
             className="transition-colors hover:text-white"
           >
-            Spec
-          </a>
-          <a
-            href="https://github.com/broxhq/registry"
-            className="transition-colors hover:text-white"
-          >
-            Registry
+            broxhq
           </a>
         </nav>
       </footer>
