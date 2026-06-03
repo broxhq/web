@@ -58,6 +58,38 @@ export default function Home() {
         </div>
       </section>
 
+      {/* qpilot — featured */}
+      <section className="mt-20 sm:mt-24">
+        <a
+          href="https://www.npmjs.com/package/qpilot"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group block rounded-xl border border-zinc-800 bg-zinc-950 p-6 transition-colors hover:border-zinc-700 sm:p-8"
+        >
+          <div className="mb-4 flex items-center justify-between gap-4">
+            <span className="text-xl font-bold tracking-tight text-white sm:text-2xl">
+              🛩 qpilot
+            </span>
+            <span className="rounded-full border border-zinc-700 px-2.5 py-0.5 text-xs text-zinc-400">
+              New
+            </span>
+          </div>
+          <p className="mb-6 leading-relaxed text-zinc-400">
+            Paste a manual test case. An AI agent opens Chrome and executes
+            each step — live <span className="text-white">pass / fail / warn</span>{" "}
+            per step. No code, no config, no Selenium.
+          </p>
+          <div className="flex flex-wrap items-center gap-3">
+            <code className="rounded-md bg-zinc-900 px-3 py-1.5 font-mono text-sm text-zinc-200">
+              npx qpilot
+            </code>
+            <span className="text-sm text-zinc-500 transition-colors group-hover:text-zinc-300">
+              npmjs.com/package/qpilot →
+            </span>
+          </div>
+        </a>
+      </section>
+
       {/* What's a skill */}
       <section className="mt-28 space-y-6 sm:mt-32">
         <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">

@@ -13,6 +13,11 @@
 
 The marketing site for Brox. Single-page minimal landing built with Next.js and Tailwind.
 
+## Projects featured
+
+- **brox** — package manager for AI agent skills
+- **[qpilot](https://npmjs.com/package/qpilot)** — run manual test cases with AI in a real browser (`npx qpilot`)
+
 ## Develop
 
 ```bash
