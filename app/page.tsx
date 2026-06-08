@@ -38,9 +38,28 @@ Steps:
 4. Click the cart icon.
    Expected: cart contains Sauce Labs Backpack at $29.99.`;
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "qpilot",
+  applicationCategory: "DeveloperApplication",
+  operatingSystem: "macOS, Linux, Windows",
+  description:
+    "AI agent that runs your manual test cases in a real browser. Paste a plain-text test case — it opens Chrome, executes each step, and reports pass / fail / warn.",
+  url: "https://brox.sh",
+  downloadUrl: "https://www.npmjs.com/package/qpilot",
+  license: "https://github.com/broxhq/qpilot/blob/main/LICENSE",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "brox", url: "https://github.com/broxhq" },
+};
+
 export default function Home() {
   return (
     <main className="mx-auto max-w-2xl px-6 py-24 sm:py-32">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
       {/* Hero */}
       <section className="space-y-10">
